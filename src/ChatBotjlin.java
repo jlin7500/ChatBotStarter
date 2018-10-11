@@ -40,7 +40,7 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hello, what's your name?";
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class ChatBotjlin
 	public String getResponse(String statement)
 	{
 		String response = "";
-		
+
 		if (statement.length() == 0)
 		{
 			response = "Say something, please.";
@@ -64,7 +64,7 @@ public class ChatBotjlin
 			response = "Why so negative?";
                 	emotion--;
 		}
-		
+
 		else if (findKeyword(statement, "levin") >= 0)
 		{
 			response = "More like LevinTheDream, amiright?";
@@ -89,21 +89,27 @@ public class ChatBotjlin
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
-		}	
+		}
+		else if (findKeyword(statement , "learn", 0) >= 0)
+		{
+			response =transformLearn(statement);
+		}
 		else
 		{
 			response = getRandomResponse();
 		}
-		
+
 		return response;
 	}
-	
+
 	/**
 	 * Take a statement with "I want to <something>." and transform it into 
 	 * "Why do you want to <something>?"
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
+
+
 	private String transformIWantToStatement(String statement)
 	{
 		//  Remove the final period, if there is one
@@ -120,6 +126,20 @@ public class ChatBotjlin
 		return "Why do you want to " + restOfStatement + "?";
 	}
 
+	private String transformLearn(String statement)
+	{
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn = findKeyword (statement, "learn", 0);
+		String restOfStatement = statement.substring(psn + 5).trim();
+		return "Why do you want to learn " + restOfStatement + "?";
+	}
 	
 	/**
 	 * Take a statement with "I want <something>." and transform it into 
