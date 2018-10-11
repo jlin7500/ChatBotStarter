@@ -13,7 +13,7 @@ public class ChatBotRunner
 	 */
 	public static void main(String[] args)
 	{
-		ChatBot1 chatbot1 = new ChatBot1();
+		ChatBotjlin chatbot1 = new ChatBotjlin();
 		ChatBot2 chatbot2 = new ChatBot2();
 		ChatBot3 chatbot3 = new ChatBot3();
 		
@@ -26,8 +26,6 @@ public class ChatBotRunner
 		{
 			//Use Logic to control which chatbot is handling the conversation\
 			//This example has only chatbot1
-
-
 
 			chatbot1.chatLoop(statement);
 
