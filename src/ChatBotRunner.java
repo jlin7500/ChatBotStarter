@@ -21,9 +21,8 @@ public class ChatBotRunner
 		Scanner in = new Scanner (System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
 		String statement = in.nextLine();
-
-
-		while (!statement.equals("Bye"))
+		statement = statement.toLowerCase();
+		while (!statement.equals("bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
 			//This example has only chatbot1
