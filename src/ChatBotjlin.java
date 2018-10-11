@@ -20,7 +20,7 @@ public class ChatBotjlin
 	{
 		Scanner in = new Scanner (System.in);
 		System.out.println (getGreeting());
-
+		String name =
 
 		while (!statement.equals("Bye"))
 		{
@@ -40,7 +40,7 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hello, what's your name?";
 	}
 	
 	/**
@@ -97,13 +97,19 @@ public class ChatBotjlin
 		
 		return response;
 	}
-	
+
 	/**
 	 * Take a statement with "I want to <something>." and transform it into 
 	 * "Why do you want to <something>?"
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
+		String response = "";
+		if (response.length() == 0)
+		{
+			response = "Say something, please.";
+		}
+		else if (findKeyword(response, "g"))
 	private String transformIWantToStatement(String statement)
 	{
 		//  Remove the final period, if there is one
