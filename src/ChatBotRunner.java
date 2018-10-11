@@ -20,9 +20,13 @@ public class ChatBotRunner
 
 		Scanner in = new Scanner (System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
+		System.out.println("Select a game");
+		System.out.println("'League of Legends', 'Minecraft', 'Blade and Soul'");
+		System.out.println("Please type exactly as shown it is case sensitive.");
 		String statement = in.nextLine();
 
 
+		if (statement.equals(""))
 		while (!statement.equals("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\
