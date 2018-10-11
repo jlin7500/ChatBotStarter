@@ -27,6 +27,7 @@ public class ChatBotGliu {
 
         }
 
+
     }
     /**
      * Get a default greeting
@@ -34,7 +35,7 @@ public class ChatBotGliu {
      */
     public String getGreeting()
     {
-        return "Hi, what is up?";
+        return("Hi.What is your name?");
     }
 
     /**
@@ -53,15 +54,15 @@ public class ChatBotGliu {
             response = "Say something, please.";
         }
 
-        else if (findKeyword(statement, "no") >= 0)
+        else if (findKeyword(statement, "I won't tell") >= 0)
         {
             response = "Why so negative?";
             emotion--;
         }
 
-        else if (findKeyword(statement, "levin") >= 0)
+        else if (findKeyword(statement, "My name is") >= 0)
         {
-            response = "More like LevinTheDream amiright?";
+            response =transformNametoStatement(statement);
             emotion++;
         }
 
@@ -80,6 +81,22 @@ public class ChatBotGliu {
         }
 
         return response;
+    }
+
+
+    private String transformNametoStatement(String statement)
+    {
+        statement=statement.trim();
+        String lastChar = statement.substring(statement
+                .length() - 1);
+        if (lastChar.equals("."))
+        {
+            statement = statement.substring(0, statement
+                    .length() - 1);
+        }
+        int psn=findKeyword(statement,"My name is",0 );
+        String restOfStatement=statement.substring(psn+10).trim();
+        return"Hello "+restOfStatement+" what a good name.";
     }
 
     /**
