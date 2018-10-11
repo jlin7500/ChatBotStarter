@@ -20,26 +20,9 @@ public class ChatBotRunner
 
 		Scanner in = new Scanner (System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
-		System.out.println("Select a game you would like to learn about.");
-		System.out.println("Our options include 'League of Legends', 'Minecraft' , and 'Blade and Soul'");
-		System.out.println("Please type as it is shown because it is case sensitive.");
 		String statement = in.nextLine();
 
-		if (statement.equals("League of Legends"))
-		{
-			chatbot3.chatLoop(statement);
-			statement = in.nextLine();
-		}
-		else if (statement.equals("Minecraft"))
-		{
-			chatbot2.chatLoop(statement);
-			statement = in.nextLine();
-		}
-		else if (statement.equals("Blade and Soul"))
-		{
-			chatbot1.chatLoop(statement);
-			statement = in.nextLine();
-		}
+
 		while (!statement.equals("Bye"))
 		{
 			//Use Logic to control which chatbot is handling the conversation\

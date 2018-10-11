@@ -13,7 +13,6 @@ public class ChatBot3
 	int emotion = 0;
 
 
-
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
 	 * @param statement the statement typed by the user
@@ -22,17 +21,12 @@ public class ChatBot3
 	{
 		Scanner in = new Scanner (System.in);
 		System.out.println (getGreeting());
-
-
-		while (!statement.equals("Bye"))
+		statement= statement.toLowerCase();
+		while (!statement.equals("bye"))
 		{
-
-
 			statement = in.nextLine();
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
-
-
 		}
 
 	}
@@ -70,7 +64,7 @@ public class ChatBot3
 		else if (findKeyword(statement, "levin") >= 0)
 		{
 			response = "More like LevinTheDream amiright?";
-			emotion++;
+			emotion--;
 		}
 
 		// Response transforming I want to statement
@@ -240,8 +234,6 @@ public class ChatBot3
 	{
 		return findKeyword (statement, goal, 0);
 	}
-	
-
 
 	/**
 	 * Pick a default response to use if nothing else fits.
