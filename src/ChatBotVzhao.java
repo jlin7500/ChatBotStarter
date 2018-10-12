@@ -62,13 +62,13 @@ public class ChatBotVzhao
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
-			response =" Yup, that tasted purple."
+			response =" Yup, that tasted purple.";
 		}
 
 		else if (findKeyword(statement, "zoe") >= 0)
 		{
 			response = "More like a ZzZoe";
-			emotion+2;
+			emotion++;
 		}
 
 		// Response transforming I want to statement
