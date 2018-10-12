@@ -15,7 +15,7 @@ public class ChatBotRunner
 	{
 		ChatBotjlin chatbot1 = new ChatBotjlin();
 		ChatBotGliu chatbot2 = new ChatBotGliu();
-		ChatBot3 chatbot3 = new ChatBot3();
+		ChatBotVzhao chatbot3 = new ChatBotVzhao();
 		
 
 		Scanner in = new Scanner (System.in);
@@ -24,6 +24,7 @@ public class ChatBotRunner
 		System.out.println("'League of Legends', 'Minecraft', 'Blade and Soul'");
 		System.out.println("Please type exactly as shown it is case sensitive.");
 		String statement = in.nextLine();
+
 
 
 		if (statement.equals(""))
