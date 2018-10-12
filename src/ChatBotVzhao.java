@@ -62,14 +62,13 @@ public class ChatBotVzhao
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
-			response ="Yup, that tasted purple.";
-			emotion++;
+			response =" Yup, that tasted purple.";
 		}
-		
+
 		else if (findKeyword(statement, "zoe") >= 0)
 		{
 			response = "More like a ZzZoe";
-			emotion+2;
+			emotion++;
 		}
 
 		// Response transforming I want to statement
@@ -80,7 +79,11 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
-		}	
+		}
+		else if (findKeyword(statement, "I love",0) >= 0)
+		{
+			response = transformIYouStatement(statement);
+		}
 		else
 		{
 			response = getRandomResponse();
@@ -158,6 +161,21 @@ public class ChatBotVzhao
 		
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
 		return "Why do you " + restOfStatement + " me?";
+	}
+	private String transformILovetatement(String statement)
+	{
+		//  Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn = findKeyword (statement, "I Love", 0);
+		String restOfStatement = statement.substring(psn + 4).trim();
+		return "I Love " + restOfStatement + " also!";
 	}
 	
 
@@ -260,7 +278,7 @@ public class ChatBotVzhao
 	
 	private String [] randomNeutralResponses = {
 			"Interesting, tell me more",
-			"",
+			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
 			"It's all boolean to me.",
