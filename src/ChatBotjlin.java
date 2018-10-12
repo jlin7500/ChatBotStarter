@@ -76,6 +76,11 @@ public class ChatBotjlin
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
 			emotion++;
 		}
+		else if(findKeyword(statement,"explanation") >= 0)
+		{
+			response = "It is a mmo, also know as massive multiplayer online game";
+			emotion++;
+		}
 		else if (findKeyword(statement, "folwell") >= 0)
 		{
 			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
