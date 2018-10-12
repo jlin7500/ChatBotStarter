@@ -77,7 +77,7 @@ public class ChatBotjlin
 		}
 		else if(findKeyword(statement, "overview") >= 0)
 		{
-			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
+			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previousa student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
 			emotion++;
 		}
 		else if(findKeyword(statement,"explanation") >= 0)
