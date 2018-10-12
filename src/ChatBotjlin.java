@@ -62,8 +62,12 @@ public class ChatBotjlin
 
 		else if (findKeyword(statement, "classes") >= 0)
 		{
-			response = "There are 10 classes, assassin, blade master, kung fu master, blade dancer, summoner, warlock, warden, destroyer, gunslinger, and force master.";
+			response = "There are 10 classes, assassin, blade master, kung fu master, blade dancer, summoner, warlock, warden, destroyer, gunslinger, and force master. If you want to learn more about a specific class, please type it out";
                 	emotion--;
+		}
+		else if(findKeyword(statement, "assassin") >= 0)
+		{
+			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Despite the name, the shadow assasin does most damage when out of stealth. The lightning assassin on the other hand does more damage"
 		}
 
 		else if (findKeyword(statement, "story") >= 0)
@@ -81,7 +85,6 @@ public class ChatBotjlin
 			response = "It is a mmo, also know as massive multiplayer online game";
 			emotion++;
 		}
-		else if(findKeyword(statement, ""))
 		else if (findKeyword(statement, "folwell") >= 0)
 		{
 			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
