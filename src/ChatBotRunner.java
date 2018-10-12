@@ -25,37 +25,38 @@ public class ChatBotRunner
 		String statement = in.nextLine();
 		double noChoice = Math.random() * 3 + 1;
 		int noChoice1 = (int)noChoice;
-		if (statement.equals("League of Legends") || noChoice1 == 3)
+		if (statement.equals("League of Legends"))
 		{
 			chatbot3.chatLoop(statement);
 			statement = in.nextLine();
 		}
-		else if (statement.equals("Minecraft") || noChoice1 == 2)
+		else if (statement.equals("Minecraft"))
 		{
 			chatbot2.chatLoop(statement);
 			statement = in.nextLine();
 		}
-		else if(statement.equals("Blade and Soul") || noChoice1 == 1)
+		else if(statement.equals("Blade and Soul"))
 		{
 			chatbot1.chatLoop(statement);
 			statement = in.nextLine();
 		}
-		else
-		{
-			System.out.println("Okay I see how it is. You can get a random choice instead.");
 
-		}
-		if (statement.equals(""))
-		while (!statement.equals("Bye"))
+		else if (noChoice1 == 1)
 		{
-			//Use Logic to control which chatbot is handling the conversation\
-			//This example has only chatbot1
-
 			chatbot1.chatLoop(statement);
 			statement = in.nextLine();
-
-
 		}
+		else if(noChoice1 == 2)
+		{
+			chatbot2.chatLoop(statement);
+			statement = in.nextLine();
+		}
+		else if(noChoice1 == 3)
+		{
+			chatbot3.chatLoop(statement);
+			statement = in.nextLine();
+		}
+
 	}
 
 }
