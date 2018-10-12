@@ -81,6 +81,7 @@ public class ChatBotjlin
 			response = "It is a mmo, also know as massive multiplayer online game";
 			emotion++;
 		}
+		else if(findKeyword(statement, ""))
 		else if (findKeyword(statement, "folwell") >= 0)
 		{
 			response = "Watch your backpacks, Mr. Folwell doesn't fall well.";
