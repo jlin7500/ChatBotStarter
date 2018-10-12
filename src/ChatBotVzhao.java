@@ -54,6 +54,7 @@ public class ChatBotVzhao
 		{
 			response = "Let's put on our thinking caps! Hmm... hmmhmm, hmmhmm...";
 		}
+
 		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "No, that's not nice!";
@@ -61,14 +62,16 @@ public class ChatBotVzhao
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
-			response ="Yup, that tasted purple.";
-			emotion++;
+			response =" Yup, that tasted purple."
 		}
+
 		else if (findKeyword(statement, "zoe") >= 0)
 		{
 			response = "More like a ZzZoe";
 			emotion+2;
 		}
+
+		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
@@ -76,10 +79,6 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
-		}
-		else if (findKeyword(statement, "I love",0) >= 0)
-		{
-			response = transformILoveStatement(statement);
 		}
 		else
 		{
@@ -122,10 +121,12 @@ public class ChatBotVzhao
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
-		String lastChar = statement.substring(statement.length() - 1);
+		String lastChar = statement.substring(statement
+				.length() - 1);
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement.length() - 1);
+			statement = statement.substring(0, statement
+					.length() - 1);
 		}
 		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
@@ -139,20 +140,6 @@ public class ChatBotVzhao
 	 * @param statement the user statement, assumed to contain "I" followed by "you"
 	 * @return the transformed statement
 	 */
-	private String transformILoveStatement(String statement)
-	{
-		//  Remove the final period, if there is one
-		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement
-					.length() - 1);
-		}
-		int psn = findKeyword (statement, "I love", 0);
-		String restOfStatement = statement.substring(psn + 4).trim();
-		return "Why do you love "+restOfStatement+" ?";
 	private String transformIYouStatement(String statement)
 	{
 		//  Remove the final period, if there is one
@@ -272,7 +259,7 @@ public class ChatBotVzhao
 	
 	private String [] randomNeutralResponses = {
 			"Interesting, tell me more",
-			"*sleeping noises*",
+			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
 			"It's all boolean to me.",
