@@ -54,7 +54,6 @@ public class ChatBotVzhao
 		{
 			response = "Let's put on our thinking caps! Hmm... hmmhmm, hmmhmm...";
 		}
-
 		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "No, that's not nice!";
@@ -65,14 +64,11 @@ public class ChatBotVzhao
 			response ="Yup, that tasted purple.";
 			emotion++;
 		}
-		
 		else if (findKeyword(statement, "zoe") >= 0)
 		{
 			response = "More like a ZzZoe";
 			emotion+2;
 		}
-
-		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
@@ -258,7 +254,7 @@ public class ChatBotVzhao
 	
 	private String [] randomNeutralResponses = {
 			"Interesting, tell me more",
-			"",
+			"*sleeping noises*",
 			"Do you really think so?",
 			"You don't say.",
 			"It's all boolean to me.",
