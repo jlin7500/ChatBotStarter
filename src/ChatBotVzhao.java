@@ -36,7 +36,7 @@ public class ChatBotVzhao
 	 */	
 	public String getGreeting()
 	{
-		return "Hi, what is up?";
+		return "Hi,I'm ZoeBot";
 	}
 	
 	/**
