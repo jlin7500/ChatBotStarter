@@ -38,7 +38,10 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
-		return "Hello, I see you selected the Blade anda Soul bot, or you just didn't select anything and got sent here.";
+		System.out.println("Hello, I see you selected the Blade and Soul bot ☆*:.｡.o(≧▽≦)o.｡.:*☆, or you just didn't select anything and got sent here(ノ°益°)ノ.");
+		System.out.println("What would you like to learn about the game?");
+		System.out.println("We have types of classes, overview of the story, explanation of what type of game Blade and Soul is.");
+		return("");
 	}
 	
 	/**
@@ -57,15 +60,20 @@ public class ChatBotjlin
 			response = "Say something, please.";
 		}
 
-		else if (findKeyword(statement, "no") >= 0)
+		else if (findKeyword(statement, "classes") >= 0)
 		{
-			response = "Why so negative?";
+			response = "There are 10 classes, assassin, blade master, kung fu master, blade dancer, summoner, warlock, warden, destroyer, gunslinger, and force master.";
                 	emotion--;
 		}
 
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "story") >= 0)
 		{
-			response = "More like LevinTheDream, amiright?";
+			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
+			emotion++;
+		}
+		else if(findKeyword(statement, "overview") >= 0)
+		{
+			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
 			emotion++;
 		}
 		else if (findKeyword(statement, "folwell") >= 0)
