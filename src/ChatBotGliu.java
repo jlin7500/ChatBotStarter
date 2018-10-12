@@ -62,7 +62,8 @@ public class ChatBotGliu {
 
         else if (findKeyword(statement, "My name is") >= 0)
         {
-            response =transformNametoStatement(statement);
+            String intro="Have you ever hear of Minecraft? It is the best game in the world!";
+            response =transformNametoStatement(statement)+ intro;
             emotion++;
         }
 
@@ -151,6 +152,7 @@ public class ChatBotGliu {
      * @param statement the user statement, assumed to contain "I" followed by "you"
      * @return the transformed statement
      */
+    /*
     private String transformIYouStatement(String statement)
     {
         //  Remove the final period, if there is one
@@ -169,7 +171,7 @@ public class ChatBotGliu {
         String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
         return "Why do you " + restOfStatement + " me?";
     }
-
+*/
 
 
 
@@ -265,9 +267,9 @@ public class ChatBotGliu {
         }
         if (emotion < 0)
         {
-            return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
+            return randomAngryResponses [r.nextInt(randomAngryResponses.length)]+AngryEmoji[r.nextInt(AngryEmoji.length)];
         }
-        return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+        return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
     }
 
     private String [] randomNeutralResponses = {"Interesting, tell me more",
@@ -280,5 +282,6 @@ public class ChatBotGliu {
     };
     private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
     private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
-
+    private String [] AngryEmoji={"(＃`Д´)",	"ヾ(`ヘ´)ﾉﾞ","ヽ( `д´*)ノ","ヽ(‵﹏´)ノ", "(ﾒ` ﾛ ´)","(҂ `з´ )"};
+    private String [] HapplyEmoji={"(*≧ω≦*)","(´｡• ᵕ •｡`)","(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧","o(≧▽≦)o","(๑˃ᴗ˂ﻭ)"};
 }
