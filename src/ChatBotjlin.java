@@ -38,7 +38,7 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
-		return "Hello, I see you selected the Blade and Soul bot, or you just didn't select anything and got sent here.";
+		return "Hello, I see you selected the Blade anda Soul bot, or you just didn't select anything and got sent here.";
 	}
 	
 	/**
