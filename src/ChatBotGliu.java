@@ -95,8 +95,8 @@ public class ChatBotGliu {
                     .length() - 1);
         }
         int psn=findKeyword(statement,"My name is",0 );
-        String restOfStatement=statement.substring(psn+10).trim();
-        return"Hello "+restOfStatement+" what a good name.";
+        String name=statement.substring(psn+10).trim();
+        return"Hello "+name+" what a good name.";
     }
 
     /**
