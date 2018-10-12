@@ -36,7 +36,7 @@ public class ChatBotVzhao
 	 */	
 	public String getGreeting()
 	{
-		return "Hi,I'm ZoeBot";
+		return "Hi,I'm ZoeBot, Pleased to meet you!";
 	}
 	
 	/**
@@ -52,19 +52,24 @@ public class ChatBotVzhao
 		
 		if (statement.length() == 0)
 		{
-			response = "Say something, please.";
+			response = "Let's put on our thinking caps! Hmm... hmmhmm, hmmhmm...";
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "No, that's not nice!";
                 	emotion--;
 		}
-		
-		else if (findKeyword(statement, "levin") >= 0)
+		else if (findKeyword(statement, "yes") >=0)
 		{
-			response = "More like LevinTheDream amiright?";
-			emotion--;
+			response ="Yup, that tasted purple.";
+			emotion++;
+		}
+		
+		else if (findKeyword(statement, "zoe") >= 0)
+		{
+			response = "More like a ZzZoe";
+			emotion+2;
 		}
 
 		// Response transforming I want to statement
@@ -253,8 +258,9 @@ public class ChatBotVzhao
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
 	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
-			"Hmmm.",
+	private String [] randomNeutralResponses = {
+			"Interesting, tell me more",
+			"",
 			"Do you really think so?",
 			"You don't say.",
 			"It's all boolean to me.",
