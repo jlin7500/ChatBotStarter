@@ -62,27 +62,54 @@ public class ChatBotjlin
 
 		else if (findKeyword(statement, "classes") >= 0)
 		{
-			response = "There are 10 classes, assassin, blade master, kung fu master, blade dancer, summoner, warlock, warden, destroyer, gunslinger, and force master. If you want to learn more about a specific class, please type it out";
+			response = "There are 3 types of classes, tanks, damage dealers, and supports. Which one of them would you like to learn about?";
                 	emotion--;
 		}
-		else if(findKeyword(statement, "assassin") >= 0)
+		else if (findKeyword(statement, "tanks") >= 0)
 		{
-			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Despite the name, the shadow assasin does most damage when out of stealth. The lightning assassin on the other hand does more damage"
+			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
 		}
-
+		else if (findKeyword(statement, "tank") >= 0)
+		{
+			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
+		}
+		else if (findKeyword(statement, "warden") >= 0)
+		{
+			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive sheild on top of the health bar.";
+		}
+		else if (findKeyword(statement, "blade master") >= 0)
+		{
+			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. ";
+		}
+		else if (findKeyword(statement, "kung fu") >= 0)
+		{
+			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+		}
+		else if (findKeyword(statement, "kung fu master") >= 0)
+		{
+			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+		}
+		else if (findKeyword(statement, "assassin") >= 0)
+		{
+			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Despite the name, the shadow assasin does most damage when out of stealth. The lightning assassin on the other hand does more damage";
+		}
+		else if (findKeyword(statement, "blade master") >= 0)
+		{
+			response = "Every class has two elements which may vary their playstyle greatly. The blade master has the elements of fire and lightning. The blade master can offer protection to the whole party and is also one of the few tank classes the game.  has Fire is easier to play than lightning.";
+		}
 		else if (findKeyword(statement, "story") >= 0)
 		{
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
 			emotion++;
 		}
-		else if(findKeyword(statement, "overview") >= 0)
+		else if (findKeyword(statement, "overview") >= 0)
 		{
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previousa student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
 			emotion++;
 		}
-		else if(findKeyword(statement,"explanation") >= 0)
+		else if (findKeyword(statement,"explanation") >= 0)
 		{
-			response = "It is a mmo, also know as massive multiplayer online game";
+			response = "It is a mmo, also know as massive multiplayer online game.";
 			emotion++;
 		}
 		else if (findKeyword(statement, "folwell") >= 0)

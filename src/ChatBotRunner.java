@@ -23,29 +23,27 @@ public class ChatBotRunner
 		System.out.println("'League of Legends', 'Minecraft', 'Blade and Soul'");
 		System.out.println("Please type exactly as shown as the bot is case sensitive.");
 		String statement = in.nextLine();
-<<<<<<< Updated upstream
 		double noChoice = Math.random() * 3 + 1;
 		int noChoice1 = (int)noChoice;
+
 		if (statement.equalsIgnoreCase("League of Legends"))
-=======
-		if (statement.equals("League of Legends"))
->>>>>>> Stashed changes
 		{
 			chatbot3.chatLoop(statement);
 			statement = in.nextLine();
 		}
-<<<<<<< Updated upstream
 		else if (statement.equalsIgnoreCase("Minecraft"))
 		{
 			chatbot2.chatLoop(statement);
 			statement = in.nextLine();
 		}
 		else if(statement.equalsIgnoreCase("Blade and Soul"))
-=======
+		{
+			chatbot3.chatLoop(statement);
+			statement = in.nextLine();
+		}
 
 		if (statement.equals(""))
 		while (!statement.equals("Bye"))
->>>>>>> Stashed changes
 		{
 			chatbot1.chatLoop(statement);
 			statement = in.nextLine();
