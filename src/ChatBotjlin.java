@@ -73,6 +73,22 @@ public class ChatBotjlin
 		{
 			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
 		}
+		else if (findKeyword(statement,"damage") >= 0)
+		{
+			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+		}
+		else if (findKeyword(statement, "damage dealer") >= 0)
+		{
+			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+		}
+		else if (findKeyword(statement, "ranged") >= 0)
+		{
+			response = "There are 4 ranged damage dealers: gunslinger, warlock, summoner, and force master.which would you like to learn about?";
+		}
+		else if (findKeyword(statement, "gunslinger") >= 0)
+		{
+			response = "The gunslinger is a damage dealing class that hits hard and moves fast.";
+		}
 		else if (findKeyword(statement, "warden") >= 0)
 		{
 			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive sheild on top of the health bar.";
@@ -91,12 +107,13 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement, "assassin") >= 0)
 		{
-			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Despite the name, the shadow assasin does most damage when out of stealth. The lightning assassin on the other hand does more damage";
+			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Assassins can help their party members skip through monsters and sometimes can solo bosses.";
 		}
 		else if (findKeyword(statement, "blade master") >= 0)
 		{
 			response = "Every class has two elements which may vary their playstyle greatly. The blade master has the elements of fire and lightning. The blade master can offer protection to the whole party and is also one of the few tank classes the game.  has Fire is easier to play than lightning.";
 		}
+		else if (findKeyword(statement,""))
 		else if (findKeyword(statement, "story") >= 0)
 		{
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
