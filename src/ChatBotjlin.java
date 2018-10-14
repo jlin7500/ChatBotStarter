@@ -83,15 +83,47 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement, "ranged") >= 0)
 		{
-			response = "There are 4 ranged damage dealers: gunslinger, warlock, summoner, and force master.which would you like to learn about?";
+			response = "There are 4 ranged damage dealers: gunslinger, warlock, summoner, and force master.Which would you like to learn about?";
+		}
+		else if (findKeyword(statement, "melee") >= 0)
+		{
+			response = "There are 4 melee damage dealers: destroyer, blade dancer, soul fighter, and assassin. Which would you like to learn about";
+		}
+		else if (findKeyword(statement, "warlock") >= 0)
+		{
+			response = "The warlock is a slow class that deals medium damage, but mainly offers a buff to the party called 'soulburn'. The warlock has 2 playable elements, shadow and ice.";
 		}
 		else if (findKeyword(statement, "gunslinger") >= 0)
 		{
-			response = "The gunslinger is a damage dealing class that hits hard and moves fast.";
+			response = "The gunslinger is a damage dealing class that hits hard and moves fast, they don't have many buffs to offer, only their massive damage. The gunslinger has 2 playable elements, fire and shadow.";
+		}
+		else if (findKeyword(statement, "summoner") >= 0)
+		{
+			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind."
+		}
+		else if (findKeyword(statement, "force master") >= 0)
+		{
+			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility."
+		}
+		else if (findKeyword(statement, "blade dancer") >= 0)
+		{
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+		}
+		else if (findKeyword(statement, "Blade dancer") >= 0)
+		{
+			response = "";
+		}
+		else if (findKeyword(statement,"Blade Dancer") >= 0)
+		{
+			response = "";
+		}
+		else if (findKeyword(statement, "blade Dancer") >= 0)
+		{
+
 		}
 		else if (findKeyword(statement, "warden") >= 0)
 		{
-			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive sheild on top of the health bar.";
+			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive shield on top of the health bar.";
 		}
 		else if (findKeyword(statement, "blade master") >= 0)
 		{
@@ -116,12 +148,12 @@ public class ChatBotjlin
 		else if (findKeyword(statement,""))
 		else if (findKeyword(statement, "story") >= 0)
 		{
-			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
+			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction interesting, feel free to play the game to learn more";
 			emotion++;
 		}
 		else if (findKeyword(statement, "overview") >= 0)
 		{
-			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previousa student. you then set off on a path of revenge. If you found this little introduction intersting, feel free to play the game to learn more";
+			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction interesting, feel free to play the game to learn more";
 			emotion++;
 		}
 		else if (findKeyword(statement,"explanation") >= 0)
@@ -210,8 +242,7 @@ public class ChatBotjlin
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
+		String lastChar = statement.substring(statement.length() - 1);
 		if (lastChar.equals("."))
 		{
 			statement = statement.substring(0, statement
@@ -233,12 +264,10 @@ public class ChatBotjlin
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
+		String lastChar = statement.substring(statement.length() - 1);
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 		}
 		
 		int psnOfI = findKeyword (statement, "I", 0);
