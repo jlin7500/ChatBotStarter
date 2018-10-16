@@ -58,6 +58,7 @@ public class ChatBotjlin
 		if (statement.length() == 0)
 		{
 			response = "Say something, please.";
+			emotion--;
 		}
 
 		else if (findKeyword(statement, "classes") >= 0)
@@ -393,6 +394,6 @@ public class ChatBotjlin
 			"Could you say that again?"
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "Nice"};
 	
 }
