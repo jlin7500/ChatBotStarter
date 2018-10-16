@@ -68,7 +68,7 @@ public class ChatBotGliu {
         }
 
         // Response transforming I want to statement
-        else if (findKeyword(statement, "I want to", 0) >= 0)
+        else if (findKeyword(statement,"yes", 0) >= 0)
         {
             response = transformIWantToStatement(statement);
         }
@@ -272,13 +272,13 @@ public class ChatBotGliu {
         return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
     }
 
-    private String [] randomNeutralResponses = {"Interesting, tell me more",
-            "Hmmm.",
-            "Do you really think so?",
-            "You don't say.",
-            "It's all boolean to me.",
-            "So, would you like to go for a walk?",
-            "Could you say that again?"
+    private String [] randomNeutralResponses = {"Java Edition of Minecraft has reach 28 milllions sales as of March,2018",
+            "Spectator mode is a game mode that spectators are invisible and can fly. ",
+            "You can actually make infinite water with two water buckets",
+            "You can play Minecraft in almost every platform/OS.",
+            "Chatbot has crashed.Ah,not really.",
+            "Markus Persson,known as Notch, is the creator of Minecraft",
+            "Sorry,could you say that again?"
     };
     private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
     private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
