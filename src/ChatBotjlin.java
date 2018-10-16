@@ -58,6 +58,7 @@ public class ChatBotjlin
 		if (statement.length() == 0)
 		{
 			response = "Say something, please.";
+			emotion--;
 		}
 
 		else if (findKeyword(statement, "classes") >= 0)
@@ -99,11 +100,11 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement, "summoner") >= 0)
 		{
-			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind."
+			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind.";
 		}
 		else if (findKeyword(statement, "force master") >= 0)
 		{
-			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility."
+			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility.";
 		}
 		else if (findKeyword(statement, "blade dancer") >= 0)
 		{
@@ -111,15 +112,15 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement, "Blade dancer") >= 0)
 		{
-			response = "";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
 		}
 		else if (findKeyword(statement,"Blade Dancer") >= 0)
 		{
-			response = "";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
 		}
 		else if (findKeyword(statement, "blade Dancer") >= 0)
 		{
-
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
 		}
 		else if (findKeyword(statement, "warden") >= 0)
 		{
@@ -127,7 +128,7 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement, "blade master") >= 0)
 		{
-			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. ";
+			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. The blade master has 2 playable elements, fire and lightning.";
 		}
 		else if (findKeyword(statement, "kung fu") >= 0)
 		{
@@ -145,7 +146,14 @@ public class ChatBotjlin
 		{
 			response = "Every class has two elements which may vary their playstyle greatly. The blade master has the elements of fire and lightning. The blade master can offer protection to the whole party and is also one of the few tank classes the game.  has Fire is easier to play than lightning.";
 		}
-		else if (findKeyword(statement,""))
+		else if (findKeyword(statement,"soul fighter") >= 0)
+		{
+			response = "The soul fighter is a class that can switch between melee and range, effectively helping it stay out of harms range. The soul fighter can heal their teammates and even resurrect them if they die. The soul fighter has 2 playable elements, ice and earth.";
+		}
+		else if (findKeyword(statement,"destroyer") >= 0)
+		{
+			response = "The destroyer can be a slow moving hard hitting class, it can also be a fast moving class depending on how you play it. The destroyer has the unique ability to save allies that are near death from fatal damage. ";
+		}
 		else if (findKeyword(statement, "story") >= 0)
 		{
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction interesting, feel free to play the game to learn more";
@@ -386,6 +394,6 @@ public class ChatBotjlin
 			"Could you say that again?"
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "Nice"};
 	
 }
