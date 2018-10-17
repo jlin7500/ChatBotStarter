@@ -21,7 +21,7 @@ public class RockPaperS
             System.out.println("I guess we either both lose or both win");
             choice = a1.nextLine();
         }
-        else (!choice.equals(compA))
+        else if (!choice.equals(compA))
         {
             System.out.println("I win or Do you want to argue with me?");
             choice= a1.nextLine();
