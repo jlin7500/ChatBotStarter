@@ -42,13 +42,13 @@ public class ChatBotRunner
 			statement = in.nextLine();
 		}
 
-		if (statement.equals(""))
-		while (!statement.equals("Bye"))
+		
+		/*while (!statement.equals("Bye"))
 		{
 			chatbot1.chatLoop(statement);
 			statement = in.nextLine();
 		}
-
+		*/
 		else if (noChoice1 == 1)
 		{
 			chatbot1.chatLoop(statement);
