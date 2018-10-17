@@ -27,11 +27,11 @@ public class RockPaperS
             System.out.println("I win or Do you want to argue with me?");
             choice= a1.nextLine();
         }
-        if(choice.equals("yes")
+        if(choice.equals("yes"))
         {
             return -6;
         }
-        if(choice.equals("no")
+        if(choice.equals("no"))
         {
             return +9;
         }
