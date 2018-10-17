@@ -4,7 +4,7 @@ import java.util.*;
 public class ChatBotGliu {
     //emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
     int emotion = 0;
-
+    String[] userQuestion={"yes","I heard about Minecraft","yeah"};
 
     /**
      * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
@@ -65,12 +65,21 @@ public class ChatBotGliu {
             String intro="Have you ever hear of Minecraft? It is the best game in the world!";
             response =transformNametoStatement(statement)+ intro;
             emotion++;
+            if(statement.equalsIgnoreCase(String.valueOf(userQuestion)))
+            {
+                System.out.println("Great,let's discover more about minecraft!Type\nHow to survie the first night?\nRedstone");
+                emotion++;
+            }
+            else if(statement.equalsIgnoreCase("no"))
+            {
+                System.out.println("Here are some interesting topics of Minecraft:\nHow to survive the first night\nType what you want to know in the chatbox to know more about it.");
+            }
         }
 
         // Response transforming I want to statement
-        else if (findKeyword(statement,"yes", 0) >= 0)
+        else if (findKeyword(statement,"How to survive the first night", 0) >= 0)
         {
-            response = transformIWantToStatement(statement);
+            response = HowtoSurvive(statement);
         }
         else if (findKeyword(statement, "I want",0) >= 0)
         {
@@ -106,10 +115,15 @@ public class ChatBotGliu {
      * @param statement the user statement, assumed to contain "I want to"
      * @return the transformed statement
      */
-    private String transformIWantToStatement(String statement)
+    private String HowtoSurvive(String statement)
     {
+        Random Sanwer=new Random();
+
         //  Remove the final period, if there is one
+        String[] surviveMethod={"Start punching trees down in a new world\nCreate a crafting table\nCraft a wooden pick out of planks and sticks\nGet lots of cobblestone\nTry to find a tall mountain or a cave and stay inside.",
+        "Dig all the way down,stay until the sun rises:)."+"Start punching trees down and make a wood sword(by using a crafting table\n\twood\n\twood\n\tstick),so you can fight the monsters.","Say\"I love Notch 100 times\"."};
         statement = statement.trim();
+        String RsurviveMethod=surviveMethod[Sanwer.nextInt(surviveMethod.length)];
         String lastChar = statement.substring(statement
                 .length() - 1);
         if (lastChar.equals("."))
@@ -117,9 +131,9 @@ public class ChatBotGliu {
             statement = statement.substring(0, statement
                     .length() - 1);
         }
-        int psn = findKeyword (statement, "I want to", 0);
+        int psn = findKeyword (statement, "How to survive", 0);
         String restOfStatement = statement.substring(psn + 9).trim();
-        return "Why do you want to " + restOfStatement + "?";
+        return restOfStatement + "?"+"You could\n"+RsurviveMethod;
     }
 
 
