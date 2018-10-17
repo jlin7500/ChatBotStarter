@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class RockPaperS
 {
-    public static String RPS(String a)
+    public static String RPS()
     {
         Scanner a1 = new Scanner(System.in);
         int Be = (int) Math.random() * 3 + 1;

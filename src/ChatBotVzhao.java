@@ -20,7 +20,8 @@ public class ChatBotVzhao
 	public void chatLoop(String statement)
 	{
 		Scanner in = new Scanner (System.in);
-		System.out.println (getGreeting());
+		System.out.println("Hi,I'm ZoeBot, Pleased to meet you!");
+		System.out.println("Do you want to hang out with me?");
 		statement= statement.toLowerCase();
 		while (!statement.equals("bye"))
 		{
@@ -30,14 +31,8 @@ public class ChatBotVzhao
 		}
 
 	}
-	/**
-	 * Get a default greeting 	
-	 * @return a greeting
-	 */	
-	public String getGreeting()
-	{
-		return "Hi,I'm ZoeBot, Pleased to meet you!";
-	}
+
+
 	
 	/**
 	 * Gives a response to a user statement
@@ -63,12 +58,17 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "yes") >=0)
 		{
 			response =" Yup, that tasted purple.";
+			emotion++;
 		}
 
 		else if (findKeyword(statement, "zoe") >= 0)
 		{
 			response = "More like a ZzZoe";
 			emotion++;
+		}
+		else if (findKeyword(statement, "game",0)>=0)
+		{
+			RockPaperS.RPS();
 		}
 
 		// Response transforming I want to statement
