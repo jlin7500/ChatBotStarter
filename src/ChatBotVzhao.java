@@ -58,7 +58,7 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "No, that's not nice!";
-                	emotion--;
+			emotion--;
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
@@ -162,23 +162,7 @@ public class ChatBotVzhao
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
 		return "Why do you " + restOfStatement + " me?";
 	}
-	private String transformILovetatement(String statement)
-	{
-		//  Remove the final period, if there is one
-		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
-		if (lastChar.equals("."))
-		{
-			statement = statement.substring(0, statement
-					.length() - 1);
-		}
-		int psn = findKeyword (statement, "I Love", 0);
-		String restOfStatement = statement.substring(psn + 4).trim();
-		return "I Love " + restOfStatement + " also!";
-	}
 	
-
 	
 	
 	/**
@@ -197,8 +181,7 @@ public class ChatBotVzhao
 	 * @return the index of the first occurrence of goal in
 	 *         statement or -1 if it's not found
 	 */
-	private int findKeyword(String statement, String goal,
-			int startPos)
+	private int findKeyword(String statement, String goal, int startPos)
 	{
 		String phrase = statement.trim().toLowerCase();
 		goal = goal.toLowerCase();
