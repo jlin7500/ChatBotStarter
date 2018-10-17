@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class RockPaperS
 {
-    public static void RPS(String a)
+    public static String RPS(String a)
     {
         Scanner a1 = new Scanner(System.in);
         int Be = Math.random() * 3 + 1;
@@ -18,9 +18,15 @@ public class RockPaperS
 
         if(choice.equals(compA))
         {
-
+            System.out.println("I guess we either both lose or both win");
+            choice = a1.nextLine();
         }
-
+        else (!choice.equals(compA)
+        {
+            System.out.println("I win or Do you want to argue with me?");
+            choice= a1.nextLine();
+        }
+        return choice;
 
     }
 }
