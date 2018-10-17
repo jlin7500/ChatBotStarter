@@ -30,7 +30,6 @@ public class ChatBotjlin
 			System.out.println(getResponse(statement));
 
 		}
-
 	}
 	/**
 	 * Get a default greeting 	
@@ -38,6 +37,7 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
+		System.out.println("To go back to the main menu, type 'main menu'.");
 		System.out.println("Hello, I see you selected the Blade and Soul bot ☆*:.｡.o(≧▽≦)o.｡.:*☆, or you just didn't select anything and got sent here(ノ°益°)ノ.");
 		System.out.println("What would you like to learn about the game?");
 		System.out.println("We have types of classes, overview of the story, explanation of what type of game Blade and Soul is.");
@@ -60,99 +60,120 @@ public class ChatBotjlin
 			response = "Say something, please.";
 			emotion--;
 		}
-
 		else if (findKeyword(statement, "classes") >= 0)
 		{
 			response = "There are 3 types of classes, tanks, damage dealers, and supports. Which one of them would you like to learn about?";
-                	emotion--;
+			emotion--;
 		}
 		else if (findKeyword(statement, "tanks") >= 0)
 		{
 			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "tank") >= 0)
 		{
 			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
+			emotion++;
 		}
 		else if (findKeyword(statement,"damage") >= 0)
 		{
 			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+			emotion++;
 		}
 		else if (findKeyword(statement, "damage dealer") >= 0)
 		{
 			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+			emotion++;
 		}
 		else if (findKeyword(statement, "ranged") >= 0)
 		{
 			response = "There are 4 ranged damage dealers: gunslinger, warlock, summoner, and force master.Which would you like to learn about?";
+			emotion++;
 		}
 		else if (findKeyword(statement, "melee") >= 0)
 		{
 			response = "There are 4 melee damage dealers: destroyer, blade dancer, soul fighter, and assassin. Which would you like to learn about";
+			emotion++;
 		}
 		else if (findKeyword(statement, "warlock") >= 0)
 		{
 			response = "The warlock is a slow class that deals medium damage, but mainly offers a buff to the party called 'soulburn'. The warlock has 2 playable elements, shadow and ice.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "gunslinger") >= 0)
 		{
 			response = "The gunslinger is a damage dealing class that hits hard and moves fast, they don't have many buffs to offer, only their massive damage. The gunslinger has 2 playable elements, fire and shadow.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "summoner") >= 0)
 		{
 			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "force master") >= 0)
 		{
 			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "blade dancer") >= 0)
 		{
 			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "Blade dancer") >= 0)
 		{
 			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			emotion++;
 		}
 		else if (findKeyword(statement,"Blade Dancer") >= 0)
 		{
 			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "blade Dancer") >= 0)
 		{
 			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "warden") >= 0)
 		{
 			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive shield on top of the health bar.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "blade master") >= 0)
 		{
 			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. The blade master has 2 playable elements, fire and lightning.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "kung fu") >= 0)
 		{
 			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "kung fu master") >= 0)
 		{
 			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "assassin") >= 0)
 		{
 			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Assassins can help their party members skip through monsters and sometimes can solo bosses.";
+			emotion++;
 		}
 		else if (findKeyword(statement, "blade master") >= 0)
 		{
 			response = "Every class has two elements which may vary their playstyle greatly. The blade master has the elements of fire and lightning. The blade master can offer protection to the whole party and is also one of the few tank classes the game.  has Fire is easier to play than lightning.";
+			emotion++;
 		}
 		else if (findKeyword(statement,"soul fighter") >= 0)
 		{
 			response = "The soul fighter is a class that can switch between melee and range, effectively helping it stay out of harms range. The soul fighter can heal their teammates and even resurrect them if they die. The soul fighter has 2 playable elements, ice and earth.";
+			emotion++;
 		}
 		else if (findKeyword(statement,"destroyer") >= 0)
 		{
 			response = "The destroyer can be a slow moving hard hitting class, it can also be a fast moving class depending on how you play it. The destroyer has the unique ability to save allies that are near death from fatal damage. ";
+			emotion++;
 		}
 		else if (findKeyword(statement, "story") >= 0)
 		{
@@ -179,7 +200,6 @@ public class ChatBotjlin
 			response = "Go for the gold, man.";
 			emotion++;
 		}
-
 		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
@@ -191,8 +211,12 @@ public class ChatBotjlin
 		}
 		else if (findKeyword(statement , "learn", 0) >= 0)
 		{
-			response =transformLearn(statement);
+			response = transformLearn(statement);
 		}
+		/*else if (findKeyword(statement, "main menu") >= 0)
+		{
+			ChatBotRunner.main();
+		}*/
 		else
 		{
 			response = getRandomResponse();
@@ -389,11 +413,11 @@ public class ChatBotjlin
 			"Hmmm.",
 			"Do you really think so?",
 			"You don't say.",
-			"It's all boolean to me.",
+			"Okay.",
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "Nice"};
+	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )", "The rage consumes me! ٩(╬ʘ益ʘ╬)۶"};
+	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day to flip tables (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)"};
 	
 }
