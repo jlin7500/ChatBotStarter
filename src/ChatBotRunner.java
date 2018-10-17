@@ -15,15 +15,14 @@ public class ChatBotRunner
 		ChatBotjlin chatbot1 = new ChatBotjlin();
 		ChatBotGliu chatbot2 = new ChatBotGliu();
 		ChatBotVzhao chatbot3 = new ChatBotVzhao();
-
+		ChatBotRunner chatbot4 = new ChatBotRunner();
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
 		System.out.println("Select a game");
 		System.out.println("'League of Legends', 'Minecraft', 'Blade and Soul'");
-		System.out.println("Please type exactly as shown as the bot is case sensitive.");
 		String statement = in.nextLine();
-		double noChoice = Math.random() * 3 + 1;
+		double noChoice = Math.random() * 3;
 		int noChoice1 = (int)noChoice;
 		while (!statement.equals("Bye")) {
 			if (statement.equalsIgnoreCase("League of Legends")) {
