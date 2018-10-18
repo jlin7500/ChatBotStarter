@@ -37,7 +37,6 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
-		System.out.println("To go back to the main menu, type 'main menu'.");
 		System.out.println("Hello, I see you selected the Blade and Soul bot ☆*:.｡.o(≧▽≦)o.｡.:*☆, or you just didn't select anything and got sent here(ノ°益°)ノ.");
 		System.out.println("What would you like to learn about the game?");
 		System.out.println("We have types of classes, overview of the story, explanation of what type of game Blade and Soul is.");
@@ -61,6 +60,11 @@ public class ChatBotjlin
 			emotion--;
 		}
 		else if (findKeyword(statement, "classes") >= 0)
+		{
+			response = "There are 3 types of classes, tanks, damage dealers, and supports. Which one of them would you like to learn about?";
+			emotion++;
+		}
+		else if (findKeyword(statement,"class") >= 0)
 		{
 			response = "There are 3 types of classes, tanks, damage dealers, and supports. Which one of them would you like to learn about?";
 			emotion++;
@@ -218,7 +222,7 @@ public class ChatBotjlin
 			response = getRandomResponse();
 			emotion--;
 		}
-		else if*findKeyword(statement,"yes") >= 0)
+		else if (findKeyword(statement,"yes") >= 0)
 		{
 			response = getRandomResponse();
 			emotion++;
@@ -289,7 +293,7 @@ public class ChatBotjlin
 		}
 		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
-		return "Would you really be happy if you had " + restOfStatement + "?";
+		return "Would you be happy if you had " + restOfStatement + "?";
 	}
 	
 	
@@ -425,6 +429,6 @@ public class ChatBotjlin
 			"Could you say that again?"
 	};
 	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )", "The rage consumes me! ٩(╬ʘ益ʘ╬)۶"};
-	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day to flip tables (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)"};
+	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)"};
 	
 }
