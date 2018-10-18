@@ -72,9 +72,11 @@ public class ChatBotVzhao
 			if(RockPaperS.RPS()<0)
 			{
 				emotion=emotion+3;
+				response =randomHappyResponses[1];
 			}
 			else{
 				emotion=emotion-3;
+				response = randomAngryResponses[1];
 			}
 		}
 
@@ -238,7 +240,7 @@ public class ChatBotVzhao
 	/**
 	 * Search for one word in phrase.  The search is not case sensitive.
 	 * This method will check that the given goal is not a substring of a longer string
-	 * (so, for example, "I know" does not contain "no").  The search begins at the beginning of the string.  
+	 * (so, for example, "I know" does not contain "no").  The search begins at the beginning of the string.
 	 * @param statement the string to search
 	 * @param goal the string to search for
 	 * @return the index of the first occurrence of goal in statement or -1 if it's not found
@@ -276,6 +278,6 @@ public class ChatBotVzhao
 			"Could you say that again?"
 	};
 	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "We're having fun, right?"};
 	
 }
