@@ -1,6 +1,7 @@
 import java.util.*;
 
 
+
 public class ChatBotGliu {
     //emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
     int emotion = 0;
@@ -60,30 +61,31 @@ public class ChatBotGliu {
             emotion--;
         }
 
-        else if (findKeyword(statement, "My name is") >= 0)
-        {
-            String intro="Have you ever hear of Minecraft? It is the best game in the world!";
-            response =transformNametoStatement(statement)+ intro;
+        else if (findKeyword(statement, "My name is") >= 0) {
+            String intro = "Have you ever hear of Minecraft? It is the best game in the world!";
+            response = transformNametoStatement(statement) + intro;
             emotion++;
-            if(statement.equalsIgnoreCase(String.valueOf(userQuestion)))
+        }
+        else if(statement.equalsIgnoreCase("yes"))
             {
-                System.out.println("Great,let's discover more about minecraft!Type\nHow to survie the first night?\nRedstone");
+                System.out.println("Great,let's discover more about Minecraft!Type\nHow to survie the first night?\nor Command Block");
                 emotion++;
             }
+
             else if(statement.equalsIgnoreCase("no"))
             {
-                System.out.println("Here are some interesting topics of Minecraft:\nHow to survive the first night\nType what you want to know in the chatbox to know more about it.");
+                System.out.println("Here are some interesting topics of Minecraft:\nHow to survive the first night\nCommand BlockType what you want to know in the chatbox to know more about it.");
             }
-        }
+
 
         // Response transforming I want to statement
         else if (findKeyword(statement,"How to survive the first night", 0) >= 0)
         {
             response = HowtoSurvive(statement);
         }
-        else if (findKeyword(statement, "I want",0) >= 0)
+        else if (findKeyword(statement, "CommandBlock",0) >= 0)
         {
-            response = transformIWantStatement(statement);
+            response = transformCB(statement);
         }
         else
         {
@@ -94,7 +96,7 @@ public class ChatBotGliu {
     }
 
 
-    private String transformNametoStatement(String statement)
+    public String transformNametoStatement(String statement)
     {
         statement=statement.trim();
         String lastChar = statement.substring(statement
@@ -109,6 +111,7 @@ public class ChatBotGliu {
         return"Hello "+name+" what a good name.";
     }
 
+
     /**
      * Take a statement with "I want to <something>." and transform it into
      * "Why do you want to <something>?"
@@ -121,7 +124,7 @@ public class ChatBotGliu {
 
         //  Remove the final period, if there is one
         String[] surviveMethod={"Start punching trees down in a new world\nCreate a crafting table\nCraft a wooden pick out of planks and sticks\nGet lots of cobblestone\nTry to find a tall mountain or a cave and stay inside.",
-        "Dig all the way down,stay until the sun rises:)."+"Start punching trees down and make a wood sword(by using a crafting table\n\twood\n\twood\n\tstick),so you can fight the monsters.","Say\"I love Notch 100 times\"."};
+        "Dig all the way down,stay until the sun rises:)."+"Start punching trees down and make a wood sword(by using a crafting table)\n\t■\n\t■\n\t|\nso you can fight the monsters.","Say\"I love Notch\" 100 times."};
         statement = statement.trim();
         String RsurviveMethod=surviveMethod[Sanwer.nextInt(surviveMethod.length)];
         String lastChar = statement.substring(statement
@@ -131,8 +134,8 @@ public class ChatBotGliu {
             statement = statement.substring(0, statement
                     .length() - 1);
         }
-        int psn = findKeyword (statement, "How to survive", 0);
-        String restOfStatement = statement.substring(psn + 9).trim();
+        int psn = findKeyword (statement, "How to survive the first night", 0);
+        String restOfStatement = statement.substring(psn + 30).trim();
         return restOfStatement + "?"+"You could\n"+RsurviveMethod;
     }
 
@@ -143,9 +146,12 @@ public class ChatBotGliu {
      * @param statement the user statement, assumed to contain "I want"
      * @return the transformed statement
      */
-    private String transformIWantStatement(String statement)
+    private String transformCB(String statement)
     {
-        //  Remove the final period, if there is one
+        Random Sanwer=new Random();
+        String[] CBMethod={"A command block is a block that can execute command in Minecraft.","Players can active many command blocks in a time,which is more effective than execute one command at a time using the chat box",
+        "One command block can only execute one command at a time"};
+        String commandblock=CBMethod[Sanwer.nextInt(CBMethod.length)];
         statement = statement.trim();
         String lastChar = statement.substring(statement
                 .length() - 1);
@@ -154,9 +160,10 @@ public class ChatBotGliu {
             statement = statement.substring(0, statement
                     .length() - 1);
         }
-        int psn = findKeyword (statement, "I want", 0);
-        String restOfStatement = statement.substring(psn + 6).trim();
-        return "Would you really be happy if you had " + restOfStatement + "?";
+        int psn = findKeyword (statement, "commandblock", 0);
+        String restOfStatement = statement.substring(psn +10).trim();
+        return "You really want to know about" + restOfStatement + "?"+"\n"+commandblock;
+
     }
 
 
@@ -166,26 +173,6 @@ public class ChatBotGliu {
      * @param statement the user statement, assumed to contain "I" followed by "you"
      * @return the transformed statement
      */
-    /*
-    private String transformIYouStatement(String statement)
-    {
-        //  Remove the final period, if there is one
-        statement = statement.trim();
-        String lastChar = statement.substring(statement
-                .length() - 1);
-        if (lastChar.equals("."))
-        {
-            statement = statement.substring(0, statement
-                    .length() - 1);
-        }
-
-        int psnOfI = findKeyword (statement, "I", 0);
-        int psnOfYou = findKeyword (statement, "you", psnOfI);
-
-        String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
-        return "Why do you " + restOfStatement + " me?";
-    }
-*/
 
 
 
@@ -275,15 +262,16 @@ public class ChatBotGliu {
     private String getRandomResponse ()
     {
         Random r = new Random ();
-        if (emotion == 0)
+        if (emotion >= 1)
         {
-            return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
+            return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
+
         }
         if (emotion < 0)
         {
             return randomAngryResponses [r.nextInt(randomAngryResponses.length)]+AngryEmoji[r.nextInt(AngryEmoji.length)];
         }
-        return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
+        return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
     }
 
     private String [] randomNeutralResponses = {"Java Edition of Minecraft has reach 28 milllions sales as of March,2018",
@@ -292,10 +280,11 @@ public class ChatBotGliu {
             "You can play Minecraft in almost every platform/OS.",
             "Chatbot has crashed.Ah,not really.",
             "Markus Persson,known as Notch, is the creator of Minecraft",
-            "Sorry,could you say that again?"
+            "Sorry,could you say that again?",
+            "Please follow the instruction"
     };
-    private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-    private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "You make me feel like a brand new pair of shoes."};
+    private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!","/kill @p","I will let you see the power of my \"Sharpness enchantment.level.1000\"sword"};
+    private String [] randomHappyResponses = {"We are friends because we play Minecraft,","What is your favorite Minecraft item?", "I have a feeling that you are like a command block master"};
     private String [] AngryEmoji={"(＃`Д´)",	"ヾ(`ヘ´)ﾉﾞ","ヽ( `д´*)ノ","ヽ(‵﹏´)ノ", "(ﾒ` ﾛ ´)","(҂ `з´ )"};
     private String [] HapplyEmoji={"(*≧ω≦*)","(´｡• ᵕ •｡`)","(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧","o(≧▽≦)o","(๑˃ᴗ˂ﻭ)"};
 }
