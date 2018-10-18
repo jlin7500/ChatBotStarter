@@ -15,7 +15,6 @@ public class ChatBotRunner
 		ChatBotjlin chatbot1 = new ChatBotjlin();
 		ChatBotGliu chatbot2 = new ChatBotGliu();
 		ChatBotVzhao chatbot3 = new ChatBotVzhao();
-		ChatBotRunner chatbot4 = new ChatBotRunner();
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
