@@ -25,7 +25,7 @@ public class ChatBotRunner
 		double noChoice = Math.random() * 3;
 		int noChoice1 = (int)noChoice;
 		while (!statement.equals("Bye")) {
-			if (statement.equalsIgnoreCase("League of Legends")) {
+			if (statement.equalsIgnoreCase("League of Legend")) {
 				chatbot3.chatLoop(statement);
 				statement = in.nextLine();
 			} else if (statement.equalsIgnoreCase("Minecraft")) {
