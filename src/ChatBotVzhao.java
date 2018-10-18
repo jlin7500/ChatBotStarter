@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+//Vincent Zhao
 /**
  * A program to carry on conversations with a human user.
  * This version:
@@ -89,10 +89,7 @@ public class ChatBotVzhao
 		{
 			response = transformIWantStatement(statement);
 		}
-		else if (findKeyword(statement, "I love",0) >= 0)
-		{
-			response = transformIYouStatement(statement);
-		}
+
 		else
 		{
 			response = getRandomResponse();
@@ -153,7 +150,7 @@ public class ChatBotVzhao
 	 * @param statement the user statement, assumed to contain "I" followed by "you"
 	 * @return the transformed statement
 	 */
-	private String transformIYouStatement(String statement)
+	/*private String transformIYouStatement(String statement)
 	{
 		//  Remove the final period, if there is one
 		statement = statement.trim();
@@ -171,7 +168,7 @@ public class ChatBotVzhao
 		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
 		return "Why do you " + restOfStatement + " me?";
 	}
-
+*/
 	
 	
 	/**
@@ -272,12 +269,12 @@ public class ChatBotVzhao
 			"Interesting, tell me more",
 			"Hmmm.",
 			"Do you really think so?",
-			"You don't say.",
-			"It's all boolean to me.",
-			"So, would you like to go for a walk?",
+			"Double rainbow... what does it mean?",
+			"A double rainbow is a phenomenon of optics that displays a spectrum of light due to the sun shining on droplets of moisture in the atmosphere",
+			"So, would you like to go for a SPACE WALK",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!"};
-	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "Today is a good day", "We're having fun, right?"};
+	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "Give me a moment, I'm making a crossbow"};
+	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "What A Sparkly Day, Do you like rainbows?", "We're having fun, right?"};
 	
 }
