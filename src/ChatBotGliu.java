@@ -5,7 +5,7 @@ import java.util.*;
 public class ChatBotGliu {
     //emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
     int emotion = 0;
-    String[] userQuestion={"yes","I heard about Minecraft","yeah"};
+    String username="";
 
     /**
      * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
@@ -60,7 +60,11 @@ public class ChatBotGliu {
             response = "Why so negative?";
             emotion--;
         }
-
+        else if(statement == null)
+        {
+            response ="Please follow the instruction";
+            emotion--;
+        }
         else if (findKeyword(statement, "My name is") >= 0) {
             String intro = "Have you ever hear of Minecraft? It is the best game in the world!";
             response = transformNametoStatement(statement) + intro;
@@ -68,13 +72,13 @@ public class ChatBotGliu {
         }
         else if(statement.equalsIgnoreCase("yes"))
             {
-                System.out.println("Great,let's discover more about Minecraft!Type\nHow to survie the first night?\nor Command Block");
+                System.out.println("Great,"+username+" let's discover more about Minecraft!Type\nHow to survie the first night?\nor Command Block");
                 emotion++;
             }
 
             else if(statement.equalsIgnoreCase("no"))
             {
-                System.out.println("Here are some interesting topics of Minecraft:\nHow to survive the first night\nCommand BlockType what you want to know in the chatbox to know more about it.");
+                System.out.println("Ok,new comer "+username+" Here are some interesting topics of Minecraft:\nHow to survive the first night\nCommand BlockType what you want to know in the chatbox to know more about it.");
             }
 
 
@@ -107,8 +111,8 @@ public class ChatBotGliu {
                     .length() - 1);
         }
         int psn=findKeyword(statement,"My name is",0 );
-        String name=statement.substring(psn+10).trim();
-        return"Hello "+name+" what a good name.";
+        username=statement.substring(psn+10).trim();
+        return"Hello "+username+" what a good name.";
     }
 
 
@@ -136,7 +140,7 @@ public class ChatBotGliu {
         }
         int psn = findKeyword (statement, "How to survive the first night", 0);
         String restOfStatement = statement.substring(psn + 30).trim();
-        return restOfStatement + "?"+"You could\n"+RsurviveMethod;
+        return restOfStatement + "You could\n"+RsurviveMethod;
     }
 
 
@@ -262,7 +266,7 @@ public class ChatBotGliu {
     private String getRandomResponse ()
     {
         Random r = new Random ();
-        if (emotion >= 1)
+        if (emotion > 1)
         {
             return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
 
@@ -274,17 +278,17 @@ public class ChatBotGliu {
         return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
     }
 
-    private String [] randomNeutralResponses = {"Java Edition of Minecraft has reach 28 milllions sales as of March,2018",
+    private String [] randomNeutralResponses = {"Java Edition of Minecraft has reach 28 millions sales as of March,2018",
             "Spectator mode is a game mode that spectators are invisible and can fly. ",
             "You can actually make infinite water with two water buckets",
             "You can play Minecraft in almost every platform/OS.",
             "Chatbot has crashed.Ah,not really.",
             "Markus Persson,known as Notch, is the creator of Minecraft",
             "Sorry,could you say that again?",
-            "Please follow the instruction"
+            "Please follow the instruction."
     };
-    private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "The rage consumes me!","/kill @p","I will let you see the power of my \"Sharpness enchantment.level.1000\"sword"};
-    private String [] randomHappyResponses = {"We are friends because we play Minecraft,","What is your favorite Minecraft item?", "I have a feeling that you are like a command block master"};
+    private String [] randomAngryResponses = {"100% N00B.", "gg ez", "You look like a steven!","/kill @p","I will let you see the power of my \"Sharpness enchantment.level.1000\"sword"};
+    private String [] randomHappyResponses = {"We are friends because we play Minecraft","What is your favorite Minecraft item?", "I have a feeling that"+ username+" are a command block master","I think"+username+" already know how to survive the first night","Mine"+username+"craft?"+" I actually don't know what that means"};
     private String [] AngryEmoji={"(＃`Д´)",	"ヾ(`ヘ´)ﾉﾞ","ヽ( `д´*)ノ","ヽ(‵﹏´)ノ", "(ﾒ` ﾛ ´)","(҂ `з´ )"};
     private String [] HapplyEmoji={"(*≧ω≦*)","(´｡• ᵕ •｡`)","(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧","o(≧▽≦)o","(๑˃ᴗ˂ﻭ)"};
 }
