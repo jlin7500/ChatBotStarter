@@ -69,8 +69,15 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "game",0)>=0)
 		{
 			RockPaperS.RPS();
-
+			if(RockPaperS.RPS()<0)
+			{
+				emotion=emotion+3;
+			}
+			else{
+				emotion=emotion-3;
+			}
 		}
+
 		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{

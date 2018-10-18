@@ -20,7 +20,7 @@ public class ChatBotRunner
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
 		System.out.println("Select a game");
-		System.out.println("'League of Legends', 'Minecraft', 'Blade and Soul'");
+		System.out.println("'League of Legend', 'Minecraft', 'Blade and Soul'");
 		String statement = in.nextLine();
 		double noChoice = Math.random() * 3;
 		int noChoice1 = (int)noChoice;
