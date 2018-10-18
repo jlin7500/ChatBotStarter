@@ -63,7 +63,7 @@ public class ChatBotjlin
 		else if (findKeyword(statement, "classes") >= 0)
 		{
 			response = "There are 3 types of classes, tanks, damage dealers, and supports. Which one of them would you like to learn about?";
-			emotion--;
+			emotion++;
 		}
 		else if (findKeyword(statement, "tanks") >= 0)
 		{
@@ -213,13 +213,20 @@ public class ChatBotjlin
 		{
 			response = transformLearn(statement);
 		}
-		/*else if (findKeyword(statement, "main menu") >= 0)
+		else if (findKeyword(statement, "no") >= 0)
 		{
-			ChatBotRunner.main();
-		}*/
+			response = getRandomResponse();
+			emotion--;
+		}
+		else if*findKeyword(statement,"yes") >= 0)
+		{
+			response = getRandomResponse();
+			emotion++;
+		}
 		else
 		{
 			response = getRandomResponse();
+			emotion--;
 		}
 
 		return response;
@@ -409,10 +416,10 @@ public class ChatBotjlin
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
 	
-	private String [] randomNeutralResponses = {"Interesting, tell me more",
-			"Hmmm.",
+	private String [] randomNeutralResponses = {"Interesting.",
+			"Indeed.",
 			"Do you really think so?",
-			"You don't say.",
+			"",
 			"Okay.",
 			"So, would you like to go for a walk?",
 			"Could you say that again?"
