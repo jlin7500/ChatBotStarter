@@ -1,3 +1,4 @@
+/*
 import java.util.Scanner;
 
 public class RockPaperS
@@ -5,7 +6,7 @@ public class RockPaperS
     public static int RPS()
     {
         Scanner a1 = new Scanner(System.in);
-        int Be = (int) Math.random() * 3 + 1;
+        int Be = (int) Math.random() * 3;
         String [] comp = {"rock", "paper", "scissors"};
         String compA = comp[Be];
         System.out.println("We are gonna play Rock Paper Scissors");
@@ -20,31 +21,13 @@ public class RockPaperS
         if(choice.equals(compA))
         {
             System.out.println("I guess we either both lose or both win");
-            choice = a1.nextLine();
         }
         else if (!choice.equals(compA))
         {
             System.out.println("I win or Do you want to argue with me?");
-            choice= a1.nextLine();
         }
-        if(choice.equals("yes"))
-        {
-            return -6;
-        }
-        if(choice.equals("no"))
-        {
-            return +9;
-        }
-        if(choice.equals("win"))
-        {
-            return +6;
-        }
-        if(choice.equals("lose"))
-        {
-            return -2;
-        }
-        return 3;
+
     }
 }
 
-
+*/

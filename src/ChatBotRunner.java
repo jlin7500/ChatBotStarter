@@ -15,7 +15,6 @@ public class ChatBotRunner
 		ChatBotjlin chatbot1 = new ChatBotjlin();
 		ChatBotGliu chatbot2 = new ChatBotGliu();
 		ChatBotVzhao chatbot3 = new ChatBotVzhao();
-		ChatBotRunner chatbot4 = new ChatBotRunner();
 
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to the chatbot, nice to meet you.");
@@ -25,7 +24,7 @@ public class ChatBotRunner
 		double noChoice = Math.random() * 3;
 		int noChoice1 = (int)noChoice;
 		while (!statement.equals("Bye")) {
-			if (statement.equalsIgnoreCase("League of Legends")) {
+			if (statement.equalsIgnoreCase("League of Legend")) {
 				chatbot3.chatLoop(statement);
 				statement = in.nextLine();
 			} else if (statement.equalsIgnoreCase("Minecraft")) {
