@@ -39,7 +39,7 @@ public class ChatBotVzhao
 
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
-			
+
 		}
 
 	}
@@ -308,7 +308,7 @@ public class ChatBotVzhao
 	}
 	
 	private String [] randomNeutralResponses = {
-			"Rainbows are luxs favorite objects",
+			"Rainbows are lux's favorite objects",
 			"Zoe hates when users ask her stuff",
 			"Zoe is a 1000 years older than lux",
 			"Zoe is a space creature while lux is a human woman",
