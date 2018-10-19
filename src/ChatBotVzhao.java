@@ -15,7 +15,9 @@ public class ChatBotVzhao
 	//I need to adjust stuff. the zoe statement. Add a new method for scanning the sentences.
 	// I need to get facts for lux and zoe
 	int rec =0;
-	int zac=  (int) Math.random() * 3;
+	int zac = (int)Math.random() * 3;
+	int jh=1;
+	String [] recS = new String[4];
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
 	 * @param statement the statement typed by the user
@@ -26,16 +28,18 @@ public class ChatBotVzhao
 
 		System.out.println("Hi,I'm ZoeBot, Pleased to meet you!");
 		System.out.println("We are goning to learn about League of Legend Lore Today");
-		System.out.println("Type in Either Lux or Zoe");
+		System.out.println("Type in Either Lux or Zoe or game");
 		statement= statement.toLowerCase();
 		while (!statement.equals("bye"))
 		{
 
 			statement = in.nextLine();
 
+
+
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
-			System.out.println(emotion);
+
 		}
 
 	}
@@ -63,14 +67,16 @@ public class ChatBotVzhao
 		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Can you ask about zoe?";
-			emotion--;
+			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
 			response ="I can give you more facts";
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 
 		else if (findKeyword(statement, "reee") >= 0)
@@ -78,12 +84,14 @@ public class ChatBotVzhao
 			response = "More like a ZzZzzzzz";
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "game",0)>=0)
 		{
 			RockPaperS.RPS();
 			response = "Do you still want to learn about Lux and Zoe?";
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 
 		// Response transforming I want to statement
@@ -91,32 +99,27 @@ public class ChatBotVzhao
 		{
 			response = transformIWantToStatement(statement);
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if(emotion==5)
 		{
 			response = randomHappyResponses[zac];
-			emotion=emotion++;
+			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if(emotion==4)
 		{
 			response = randomAngryResponses[zac];
-			if(rec%4==0)
-			{
-				System.out.println("REEEE");
-				System.out.println("REEEE");
-				System.out.println("REEEE");
-				System.out.println("REEEE");
-				System.out.println("REEEE");
-				System.out.println("REEEE");
-			}
-			emotion=emotion++;
-			rec++;
+			emotion++;
+			zac = (int)Math.random() * 4;
+
 		}
 
 
@@ -301,19 +304,16 @@ public class ChatBotVzhao
 	private String getRandomResponse ()
 	{
 		Random r = new Random ();
+		zac = (int)Math.random() * 4;
 		if (emotion == 0)
 		{	
-			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
+			return randomNeutralResponses [zac];
 		}
-		if (emotion < 0)
-		{	
-			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
-		}	
-		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+		return randomNeutralResponses[zac];
 	}
 	
 	private String [] randomNeutralResponses = {
-			"Rainbows are luxs favorite objects",
+			"Rainbows are lux's favorite objects",
 			"Zoe hates when users ask her stuff",
 			"Zoe is a 1000 years older than lux",
 			"Zoe is a space creature while lux is a human woman",
