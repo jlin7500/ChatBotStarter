@@ -36,7 +36,7 @@ public class ChatBotGliu {
      */
     public String getGreeting()
     {
-        return("Hi.What is your name?");
+        return("Hi.What is your name?please type my name is +<your name>" );
     }
 
     /**
@@ -66,19 +66,19 @@ public class ChatBotGliu {
             emotion--;
         }
         else if (findKeyword(statement, "My name is") >= 0) {
-            String intro = "Have you ever hear of Minecraft? It is the best game in the world!";
+            String intro = "Have you ever heard of Minecraft? It is the best game in the world!";
             response = transformNametoStatement(statement) + intro;
             emotion++;
         }
         else if(statement.equalsIgnoreCase("yes"))
             {
-                System.out.println("Great,"+username+" let's discover more about Minecraft!Type\nHow to survie the first night?\nor Command Block");
-                emotion++;
+                System.out.println("Great,"+username+" let's discover more about Minecraft!Type \n How to survive the first night?\nor\n Command Block");
+
             }
 
             else if(statement.equalsIgnoreCase("no"))
             {
-                System.out.println("Ok,new comer "+username+" Here are some interesting topics of Minecraft:\nHow to survive the first night\nCommand BlockType what you want to know in the chatbox to know more about it.");
+                System.out.println("Ok,new comer "+username+" Here are some interesting topics of Minecraft:\nHow to survive the first night\nCommand Block\nType what you want to know in the chatbox to know more about it.");
             }
 
 
@@ -86,10 +86,12 @@ public class ChatBotGliu {
         else if (findKeyword(statement,"How to survive the first night", 0) >= 0)
         {
             response = HowtoSurvive(statement);
+            emotion++;
         }
-        else if (findKeyword(statement, "CommandBlock",0) >= 0)
+        else if (findKeyword(statement, "command block",0) >= 0)
         {
             response = transformCB(statement);
+            emotion++;
         }
         else
         {
@@ -111,7 +113,7 @@ public class ChatBotGliu {
                     .length() - 1);
         }
         int psn=findKeyword(statement,"My name is",0 );
-        username=statement.substring(psn+10).trim();
+        username+=statement.substring(psn+10).trim();
         return"Hello "+username+" what a good name.";
     }
 
@@ -140,7 +142,7 @@ public class ChatBotGliu {
         }
         int psn = findKeyword (statement, "How to survive the first night", 0);
         String restOfStatement = statement.substring(psn + 30).trim();
-        return restOfStatement + "You could\n"+RsurviveMethod;
+        return restOfStatement + "You could\n"+RsurviveMethod+"\n\tType\"How to survive first night\" again to know more about it.";
     }
 
 
@@ -153,8 +155,8 @@ public class ChatBotGliu {
     private String transformCB(String statement)
     {
         Random Sanwer=new Random();
-        String[] CBMethod={"A command block is a block that can execute command in Minecraft.","Players can active many command blocks in a time,which is more effective than execute one command at a time using the chat box",
-        "One command block can only execute one command at a time"};
+        String[] CBMethod={"A command block is a block that can execute command in Minecraft.","Players can active many command blocks in a time,which is more effective than execute one command at a time using the chat box.",
+        "One command block can only execute one command at a time."};
         String commandblock=CBMethod[Sanwer.nextInt(CBMethod.length)];
         statement = statement.trim();
         String lastChar = statement.substring(statement
@@ -164,9 +166,9 @@ public class ChatBotGliu {
             statement = statement.substring(0, statement
                     .length() - 1);
         }
-        int psn = findKeyword (statement, "commandblock", 0);
-        String restOfStatement = statement.substring(psn +10).trim();
-        return "You really want to know about" + restOfStatement + "?"+"\n"+commandblock;
+        int psn = findKeyword (statement, "Command Block", 0);
+        String restOfStatement = statement.substring(psn +13).trim();
+        return "You really want to know about it" + restOfStatement + "?"+"\n"+commandblock+"\n\tType \"Command Block\" again to know more about it.";
 
     }
 
@@ -266,7 +268,7 @@ public class ChatBotGliu {
     private String getRandomResponse ()
     {
         Random r = new Random ();
-        if (emotion > 1)
+        if (emotion > 2)
         {
             return randomHappyResponses [r.nextInt(randomHappyResponses.length)]+HapplyEmoji[r.nextInt(HapplyEmoji.length)];
 
@@ -288,7 +290,7 @@ public class ChatBotGliu {
             "Please follow the instruction."
     };
     private String [] randomAngryResponses = {"100% N00B.", "gg ez", "You look like a steven!","/kill @p","I will let you see the power of my \"Sharpness enchantment.level.1000\"sword"};
-    private String [] randomHappyResponses = {"We are friends because we play Minecraft","What is your favorite Minecraft item?", "I have a feeling that"+ username+" are a command block master","I think"+username+" already know how to survive the first night","Mine"+username+"craft?"+" I actually don't know what that means"};
+    private String [] randomHappyResponses = {"We are friends because "+username+" plays Minecraft","Are" +username+" a minecraft expert?","I have a feeling that"+ username+" are a command block master","I think"+username+" already know how to survive the first night","Mine"+username+"craft?"+" I actually don't know what that means"};
     private String [] AngryEmoji={"(＃`Д´)",	"ヾ(`ヘ´)ﾉﾞ","ヽ( `д´*)ノ","ヽ(‵﹏´)ノ", "(ﾒ` ﾛ ´)","(҂ `з´ )"};
     private String [] HapplyEmoji={"(*≧ω≦*)","(´｡• ᵕ •｡`)","(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧","o(≧▽≦)o","(๑˃ᴗ˂ﻭ)"};
 }
