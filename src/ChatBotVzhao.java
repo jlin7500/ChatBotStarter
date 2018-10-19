@@ -69,12 +69,14 @@ public class ChatBotVzhao
 			response = "Can you ask about zoe?";
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
 			response ="I can give you more facts";
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 
 		else if (findKeyword(statement, "reee") >= 0)
@@ -82,12 +84,14 @@ public class ChatBotVzhao
 			response = "More like a ZzZzzzzz";
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "game",0)>=0)
 		{
 			RockPaperS.RPS();
 			response = "Do you still want to learn about Lux and Zoe?";
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 
 		// Response transforming I want to statement
@@ -95,22 +99,26 @@ public class ChatBotVzhao
 		{
 			response = transformIWantToStatement(statement);
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if(emotion==5)
 		{
 			response = randomHappyResponses[zac];
 			emotion++;
 			rec++;
+			zac = (int)Math.random() * 4;
 		}
 		else if(emotion==4)
 		{
 			response = randomAngryResponses[zac];
 			emotion++;
+			zac = (int)Math.random() * 4;
 
 		}
 
@@ -296,9 +304,10 @@ public class ChatBotVzhao
 	private String getRandomResponse ()
 	{
 		Random r = new Random ();
+		zac = (int)Math.random() * 4;
 		if (emotion == 0)
 		{	
-			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
+			return randomNeutralResponses [zac];
 		}
 		return randomNeutralResponses[zac];
 	}
