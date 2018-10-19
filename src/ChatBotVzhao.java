@@ -14,7 +14,8 @@ public class ChatBotVzhao
 	//Set up a chat history 4 statements that are same will set emotion to -10, leading to spam of text.
 	//I need to adjust stuff. the zoe statement. Add a new method for scanning the sentences.
 	// I need to get facts for lux and zoe
-
+	int rec =0;
+	int zac=  (int) Math.random() * 3;
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
 	 * @param statement the statement typed by the user
@@ -22,15 +23,19 @@ public class ChatBotVzhao
 	public void chatLoop(String statement)
 	{
 		Scanner in = new Scanner (System.in);
+
 		System.out.println("Hi,I'm ZoeBot, Pleased to meet you!");
 		System.out.println("We are goning to learn about League of Legend Lore Today");
 		System.out.println("Type in Either Lux or Zoe");
 		statement= statement.toLowerCase();
 		while (!statement.equals("bye"))
 		{
+
 			statement = in.nextLine();
+
 			//getResponse handles the user reply
 			System.out.println(getResponse(statement));
+			System.out.println(emotion);
 		}
 
 	}
@@ -51,43 +56,75 @@ public class ChatBotVzhao
 		if (statement.length() == 0)
 		{
 			response = "Let's put on our thinking caps! Hmm... hmmhmm, hmmhmm...";
+			rec++;
+
 		}
 
 		else if (findKeyword(statement, "no") >= 0)
 		{
-			response = "No, that's not nice!";
+			response = "Can you ask about zoe?";
 			emotion--;
+			rec++;
 		}
 		else if (findKeyword(statement, "yes") >=0)
 		{
-			response =" Yup, that tasted purple.";
+			response ="I can give you more facts";
 			emotion++;
+			rec++;
 		}
 
-		else if (findKeyword(statement, "zoe") >= 0)
+		else if (findKeyword(statement, "reee") >= 0)
 		{
-			response = "More like a ZzZoe";
+			response = "More like a ZzZzzzzz";
 			emotion++;
+			rec++;
 		}
 		else if (findKeyword(statement, "game",0)>=0)
 		{
 			RockPaperS.RPS();
-
+			response = "Do you still want to learn about Lux and Zoe?";
+			rec++;
 		}
 
 		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
+			rec++;
 		}
 		else if (findKeyword(statement, "I want",0) >= 0)
 		{
 			response = transformIWantStatement(statement);
+			rec++;
 		}
+		else if(emotion==5)
+		{
+			response = randomHappyResponses[zac];
+			emotion=emotion++;
+			rec++;
+		}
+		else if(emotion==4)
+		{
+			response = randomAngryResponses[zac];
+			if(rec%4==0)
+			{
+				System.out.println("REEEE");
+				System.out.println("REEEE");
+				System.out.println("REEEE");
+				System.out.println("REEEE");
+				System.out.println("REEEE");
+				System.out.println("REEEE");
+			}
+			emotion=emotion++;
+			rec++;
+		}
+
 
 		else
 		{
 			response = getRandomResponse();
+			emotion++;
+			rec++;
 		}
 		
 		return response;
@@ -136,6 +173,21 @@ public class ChatBotVzhao
 		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
 		return "Would you really be happy if you had " + restOfStatement + "?";
+	}
+	private String transformILoveStatement(String statement)
+	{
+		//  Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn = findKeyword (statement, "I love", 0);
+		String restOfStatement = statement.substring(psn + 6).trim();
+		return "Do you really love " + restOfStatement + "?";
 	}
 	
 	
@@ -261,15 +313,15 @@ public class ChatBotVzhao
 	}
 	
 	private String [] randomNeutralResponses = {
-			"Interesting, tell me more",
-			"Hmmm.",
-			"Do you really think so?",
-			"Double rainbow... what does it mean?",
+			"Rainbows are luxs favorite objects",
+			"Zoe hates when users ask her stuff",
+			"Zoe is a 1000 years older than lux",
+			"Zoe is a space creature while lux is a human woman",
 			"A double rainbow is a phenomenon of optics that displays a spectrum of light due to the sun shining on droplets of moisture in the atmosphere",
-			"So, would you like to go for a SPACE WALK",
+			"Wormhole hopping is Zoe's favorite activity",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"Bahumbug.", "Harumph", "Give me a moment, I'm making a crossbow"};
+	private String [] randomAngryResponses = {"LETS PUT A SMILE ON THAT FACE", "SPARKLES AND RAINBOWS", "Give me a moment, I'm making a crossbow"};
 	private String [] randomHappyResponses = {"H A P P Y, what's that spell?", "What A Sparkly Day, Do you like rainbows?", "We're having fun, right?"};
 	
 }

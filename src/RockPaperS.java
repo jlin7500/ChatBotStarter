@@ -18,11 +18,7 @@ public class RockPaperS
         choice=choice.toLowerCase();
         System.out.println(compA);
 
-        if(choice.equals(compA))
-        {
-            System.out.println("I guess we either both lose or both win");
-        }
-        else if (!choice.equals(compA))
+        if (!choice.equals(compA))
         {
             System.out.println("I win!(I did play within the rules)");
         }
