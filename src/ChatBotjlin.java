@@ -347,7 +347,6 @@ public class ChatBotjlin
 		}	
 		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
 	}
-	
 	private String [] randomNeutralResponses = {"Blade and Soul may be playable in America, but the developers still follow Korea.",
 			"Weeks before the NCmedia day, NCSOFT announced a new Unreal Engine 3 based MMORPG only known by its codename Project [M]. For the next two weeks, a teaser website was updated revealing more information about the project.",
 			"The first closed beta test was scheduled for April 27, 2011, while the open beta test and commercial release were to be determined within the year.",
@@ -358,7 +357,7 @@ public class ChatBotjlin
 			"Okay.",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )", "Master wouldn't be happy", "٩(╬ʘ益ʘ╬)۶"};
-	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)"};
+	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )", "Master wouldn't be happy", "٩(╬ʘ益ʘ╬)۶","(；⌣̀_⌣́)"};
+	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)", "(￣ω￣)"};
 	
 }

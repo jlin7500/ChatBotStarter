@@ -31,7 +31,7 @@ public class ChatBotRunner
 				chatbot2.chatLoop(statement);
 				statement = in.nextLine();
 			} else if (statement.equalsIgnoreCase("Blade and Soul")) {
-				chatbot3.chatLoop(statement);
+				chatbot1.chatLoop(statement);
 				statement = in.nextLine();
 			} else if (noChoice1 == 1) {
 				chatbot1.chatLoop(statement);
