@@ -11,7 +11,8 @@ public class ChatBotVzhao
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
-
+	//Set up a chat history 4 statements that are same will set emotion to -10, leading to spam of text.
+	//
 
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
@@ -21,7 +22,8 @@ public class ChatBotVzhao
 	{
 		Scanner in = new Scanner (System.in);
 		System.out.println("Hi,I'm ZoeBot, Pleased to meet you!");
-		System.out.println("Do you want to hang out with me?");
+		System.out.println("We are goning to learn about League of Legend Lore Today");
+		System.out.println("Type in Either Lux or Zoe");
 		statement= statement.toLowerCase();
 		while (!statement.equals("bye"))
 		{
@@ -66,20 +68,12 @@ public class ChatBotVzhao
 			response = "More like a ZzZoe";
 			emotion++;
 		}
-		/*else if (findKeyword(statement, "game",0)>=0)
+		else if (findKeyword(statement, "game",0)>=0)
 		{
 			RockPaperS.RPS();
-			if(RockPaperS.RPS()<0)
-			{
-				emotion=emotion+3;
-				response =randomHappyResponses[1];
-			}
-			else{
-				emotion=emotion-3;
-				response = randomAngryResponses[1];
-			}
+
 		}
-		*/
+
 		// Response transforming I want to statement
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{

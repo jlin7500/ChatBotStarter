@@ -1,13 +1,13 @@
-/*
+
 import java.util.Scanner;
 
 public class RockPaperS
 {
-    public static int RPS()
+    public static void RPS()
     {
         Scanner a1 = new Scanner(System.in);
         int Be = (int) Math.random() * 3;
-        String [] comp = {"rock", "paper", "scissors"};
+        String [] comp = {"space rock", "unbreakable paper", "scissors that cut everything"};
         String compA = comp[Be];
         System.out.println("We are gonna play Rock Paper Scissors");
         System.out.println("On the count of 3, we say which our choice");
@@ -24,10 +24,8 @@ public class RockPaperS
         }
         else if (!choice.equals(compA))
         {
-            System.out.println("I win or Do you want to argue with me?");
+            System.out.println("I win!(I did play within the rules)");
         }
 
     }
 }
-
-*/
