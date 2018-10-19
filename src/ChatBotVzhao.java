@@ -12,7 +12,8 @@ public class ChatBotVzhao
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
 	//Set up a chat history 4 statements that are same will set emotion to -10, leading to spam of text.
-	//
+	//I need to adjust stuff. the zoe statement. Add a new method for scanning the sentences.
+	// I need to get facts for lux and zoe
 
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
