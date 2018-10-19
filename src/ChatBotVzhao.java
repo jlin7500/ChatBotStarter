@@ -28,7 +28,7 @@ public class ChatBotVzhao
 
 		System.out.println("Hi,I'm ZoeBot, Pleased to meet you!");
 		System.out.println("We are goning to learn about League of Legend Lore Today");
-		System.out.println("Type in Either Lux or Zoe");
+		System.out.println("Type in Either Lux or Zoe or game");
 		statement= statement.toLowerCase();
 		while (!statement.equals("bye"))
 		{
@@ -300,11 +300,7 @@ public class ChatBotVzhao
 		{	
 			return randomNeutralResponses [r.nextInt(randomNeutralResponses.length)];
 		}
-		if (emotion < 0)
-		{	
-			return randomAngryResponses [r.nextInt(randomAngryResponses.length)];
-		}	
-		return randomHappyResponses [r.nextInt(randomHappyResponses.length)];
+		return randomNeutralResponses[zac];
 	}
 	
 	private String [] randomNeutralResponses = {
