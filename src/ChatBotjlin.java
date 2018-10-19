@@ -11,7 +11,7 @@ public class ChatBotjlin
 {
 	//emotion can alter the way our bot responds. Emotion can become more negative or positive over time.
 	int emotion = 0;
-
+	String username = "";
 	/**
 	 * Runs the conversation for this particular chatbot, should allow switching to other chatbots.
 	 * @param statement the statement typed by the user
@@ -20,7 +20,6 @@ public class ChatBotjlin
 	{
 		Scanner in = new Scanner (System.in);
 		System.out.println (getGreeting());
-
 
 		while (!statement.equals("Bye"))
 		{
@@ -37,11 +36,12 @@ public class ChatBotjlin
 	 */	
 	public String getGreeting()
 	{
+
 		System.out.println("Hello, I see you selected the Blade and Soul bot ☆*:.｡.o(≧▽≦)o.｡.:*☆, or you just didn't select anything and got sent here(ノ°益°)ノ.");
 		System.out.println("What would you like to learn about the game?");
 		System.out.println("We have types of classes, overview of the story, explanation of what type of game Blade and Soul is.");
 		System.out.println("Please type everything in lower case as the bot is sensitive. (⁄ ⁄•⁄ω⁄•⁄ ⁄)");
-		return("");
+		return("Hello, what's your name");
 	}
 	
 	/**
@@ -57,11 +57,12 @@ public class ChatBotjlin
 		if (statement.length() == 0) {
 			response = "Say something, please.";
 			emotion--;
-		} else if (findKeyword(statement, "classes") >= 0) {
-			response = "There are 2 types of classes, tanks and damage dealers. Which one of them would you like to learn about?";
+		}
+		else if (findKeyword(statement, "classes") >= 0) {
+			response = "There are 2 types of classes, tanks and damage dealers." + username + "," + "Which one of them would you like to learn about?";
 			emotion++;
 		} else if (findKeyword(statement, "class") >= 0) {
-			response = "There are 2 types of classes, tanks and damage dealers. Which one of them would you like to learn about?";
+			response = "There are 2 types of classes, tanks and damage dealers." + username + "," + "Which one of them would you like to learn about?";
 			emotion++;
 		} else if (findKeyword(statement, "tanks") >= 0) {
 			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
@@ -70,10 +71,10 @@ public class ChatBotjlin
 			response = "There are 3 tank classes: warden, blade master, and kung fu master.";
 			emotion++;
 		} else if (findKeyword(statement, "damage") >= 0) {
-			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+			response = "There are melee and ranged damage dealers? Which would you like to learn about" + username + "?" ;
 			emotion++;
 		} else if (findKeyword(statement, "damage dealer") >= 0) {
-			response = "There are melee and ranged damage dealers? Which would you like to learn about? ";
+			response = "There are melee and ranged damage dealers? Which would you like to learn about"  + username + "?";
 			emotion++;
 		} else if (findKeyword(statement, "ranged") >= 0) {
 			response = "There are 4 ranged damage dealers: gunslinger, warlock, summoner, and force master.Which would you like to learn about?";
@@ -82,52 +83,49 @@ public class ChatBotjlin
 			response = "There are 4 melee damage dealers: destroyer, blade dancer, soul fighter, and assassin. Which would you like to learn about";
 			emotion++;
 		} else if (findKeyword(statement, "warlock") >= 0) {
-			response = "The warlock is a slow class that deals medium damage, but mainly offers a buff to the party called 'soulburn'. The warlock has 2 playable elements, shadow and ice.";
+			response = "The warlock is a slow class that deals medium damage, but mainly offers a buff to the party called 'soulburn'. The warlock has 2 playable elements, shadow and ice." + username +" " + "If you like to get carried you can play this class.";
 			emotion++;
 		} else if (findKeyword(statement, "gunslinger") >= 0) {
-			response = "The gunslinger is a damage dealing class that hits hard and moves fast, they don't have many buffs to offer, only their massive damage. The gunslinger has 2 playable elements, fire and shadow.";
+			response = "The gunslinger is a damage dealing class that hits hard and moves fast, they don't have many buffs to offer, only their massive damage. The gunslinger has 2 playable elements, fire and shadow." + username + " " + "If you like big damage and having a bad stereotype you can play this.";
 			emotion++;
 		} else if (findKeyword(statement, "summoner") >= 0) {
-			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind.";
+			response = "The summoner is a class with a little pet! The summoner deals the main damage, while the cat offers healing, protection, and damage reduction. The summoner has 2 playable elements, earth and wind." + username + " " +"You want to dress up your pet? Then this is the right class for you!";
 			emotion++;
 		} else if (findKeyword(statement, "force master") >= 0) {
-			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility.";
+			response = "The force master is a one of the classes with a skill set that switches back and forth between 2 elements, ice and fire. The force master has 2 playable elements, ice and fire. It may seem unique that they can use 2 elements but they mainly use 1 in combat, the other is used for utility." + username + " " + "Big damage and party utility but most overcrowded class in the game.";
 			emotion++;
 		} else if (findKeyword(statement, "blade dancer") >= 0) {
-			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind." + username + " " +"If you like to be fast and smol you can play this";
 			emotion++;
 		} else if (findKeyword(statement, "Blade dancer") >= 0) {
-			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind."+ username + " " +"If you like to be fast and smol you can play this";
 			emotion++;
 		} else if (findKeyword(statement, "Blade Dancer") >= 0) {
-			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind."+ username + " " +"If you like to be fast and smol you can play this";
 			emotion++;
 		} else if (findKeyword(statement, "blade Dancer") >= 0) {
-			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind.";
+			response = "The blade dancer is a class that hits fast and moves fast. The blade dancer is not at all like the blade master, despite its name. The blade dancer also offers party protection but is a melee damage dealer. The blade dancer has 2 playable elements, lightning and wind."+ username + " " +"If you like to be fast and smol you can play this";
 			emotion++;
 		} else if (findKeyword(statement, "warden") >= 0) {
-			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive shield on top of the health bar.";
+			response = "The warden is a tank class that moves slow and hits hard. It has a greater health pool than the other tanks because it has a unique character design that gives a passive shield on top of the health bar." + username + "," + " " + "this is the bane of the community!";
 			emotion++;
 		} else if (findKeyword(statement, "blade master") >= 0) {
-			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. The blade master has 2 playable elements, fire and lightning.";
+			response = "The blade master is a tank class that offers party protection. The blade master is a typical tank with nothing special. The blade master has 2 playable elements, fire and lightning." + username + "," + " " + "this is the OG tank, the actual 'true tank' in my opinion." ;
 			emotion++;
 		} else if (findKeyword(statement, "kung fu") >= 0) {
-			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything." + username + "," + " " + "hardest class to play but can deal ridiculous amounts of damage.";
 			emotion++;
 		} else if (findKeyword(statement, "kung fu master") >= 0) {
-			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything.";
+			response = "The kung fu master is a tank class that offers many offensive buffs. The kung fu master also has a unique passive that allows them to dodge almost anything."  + username + "," + " " + "hardest class to play but can deal ridiculous amounts of damage.";
 			emotion++;
 		} else if (findKeyword(statement, "assassin") >= 0) {
-			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Assassins can help their party members skip through monsters and sometimes can solo bosses.";
-			emotion++;
-		} else if (findKeyword(statement, "blade master") >= 0) {
-			response = "Every class has two elements which may vary their playstyle greatly. The blade master has the elements of fire and lightning. The blade master can offer protection to the whole party and is also one of the few tank classes the game.  has Fire is easier to play than lightning.";
+			response = "Every class has two elements which may vary their playstyle greatly. The assassin has the elements of shadow and lightning. Assassins can help their party members skip through monsters and sometimes can solo bosses." + username + "," + " " + "not many play this class, but whatever floats your boat!";
 			emotion++;
 		} else if (findKeyword(statement, "soul fighter") >= 0) {
-			response = "The soul fighter is a class that can switch between melee and range, effectively helping it stay out of harms range. The soul fighter can heal their teammates and even resurrect them if they die. The soul fighter has 2 playable elements, ice and earth.";
+			response = "The soul fighter is a class that can switch between melee and range, effectively helping it stay out of harms range. The soul fighter can heal their teammates and even resurrect them if they die. The soul fighter has 2 playable elements, ice and earth." + username +  "," + " " + "tryhard class, all I have to say.";
 			emotion++;
 		} else if (findKeyword(statement, "destroyer") >= 0) {
-			response = "The destroyer can be a slow moving hard hitting class, it can also be a fast moving class depending on how you play it. The destroyer has the unique ability to save allies that are near death from fatal damage. ";
+			response = "The destroyer can be a slow moving hard hitting class, it can also be a fast moving class depending on how you play it. The destroyer has the unique ability to save allies that are near death from fatal damage.";
 			emotion++;
 		} else if (findKeyword(statement, "story") >= 0) {
 			response = "A quick overview of the story is that your whole school(more like family in the game) has been killed by your masters previous student. you then set off on a path of revenge. If you found this little introduction interesting, feel free to play the game to learn more";
@@ -187,7 +185,20 @@ public class ChatBotjlin
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "Why do you want to " + restOfStatement + "?";
 	}
-
+	public String transformNametoStatement(String statement)
+	{
+		statement=statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn=findKeyword(statement,"My name is",0 );
+		username=statement.substring(psn+10).trim();
+		return"Hello "+ username+" It's nice to meet you.";
+	}
 	private String transformLearn(String statement)
 	{
 		statement = statement.trim();
@@ -357,7 +368,7 @@ public class ChatBotjlin
 			"Okay.",
 			"Could you say that again?"
 	};
-	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )", "Master wouldn't be happy", "٩(╬ʘ益ʘ╬)۶","(；⌣̀_⌣́)"};
+	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )" + username + "is a mean person", "Master wouldn't be happy" + username , "٩(╬ʘ益ʘ╬)۶", "I'm coming for you" + username + "!","(；⌣̀_⌣́)"};
 	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)", "(￣ω￣)"};
 	
 }
