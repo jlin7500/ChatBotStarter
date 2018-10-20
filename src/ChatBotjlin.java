@@ -178,8 +178,7 @@ public class ChatBotjlin
 				.length() - 1);
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 		}
 		int psn = findKeyword (statement, "I want to", 0);
 		String restOfStatement = statement.substring(psn + 9).trim();
@@ -202,12 +201,10 @@ public class ChatBotjlin
 	private String transformLearn(String statement)
 	{
 		statement = statement.trim();
-		String lastChar = statement.substring(statement
-				.length() - 1);
+		String lastChar = statement.substring(statement.length() - 1);
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 		}
 		int psn = findKeyword (statement, "learn", 0);
 		String restOfStatement = statement.substring(psn + 5).trim();
@@ -227,8 +224,7 @@ public class ChatBotjlin
 		String lastChar = statement.substring(statement.length() - 1);
 		if (lastChar.equals("."))
 		{
-			statement = statement.substring(0, statement
-					.length() - 1);
+			statement = statement.substring(0, statement.length() - 1);
 		}
 		int psn = findKeyword (statement, "I want", 0);
 		String restOfStatement = statement.substring(psn + 6).trim();
@@ -338,8 +334,6 @@ public class ChatBotjlin
 	{
 		return findKeyword (statement, goal, 0);
 	}
-	
-
 
 	/**
 	 * Pick a default response to use if nothing else fits.
@@ -364,9 +358,9 @@ public class ChatBotjlin
 			"An anime adaptation of the game was produced and aired from April to June 2014.",
 			"On May 10, 2018, NCsoft has teased a new \"Blade & Soul Vision Update\", the renovation project with upgrading the engine to Unreal Engine 4.",
 			"Indeed.",
-			"Do you really think so?",
+			"Do you really think so" + username + "?",
 			"Okay.",
-			"Could you say that again?"
+			"Could you say that again" + username + "?"
 	};
 	private String [] randomAngryResponses = {"(‡▼益▼)", "Hmph ( `ε´ )" + username + "is a mean person", "Master wouldn't be happy" + username , "٩(╬ʘ益ʘ╬)۶", "I'm coming for you" + username + "!","(；⌣̀_⌣́)"};
 	private String [] randomHappyResponses = {"H A P P Y ＼(≧▽≦)／" , "Today is a good day (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "Nice (☆▽☆)", "(￣ω￣)"};
